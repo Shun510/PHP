@@ -64,7 +64,7 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // 「準備された文(prepared statement)」を用意する
 
-$sql = "SELECT * FROM movie ORDER BY name='$nen'";
+$sql = "SELECT * FROM movie  WHERE year='$nen'";
 
 $pre = $dbh->prepare($sql);
 
@@ -74,9 +74,13 @@ $res = $pre->execute();
 // 情報を取得し、テーブルとして出力する
 echo "<table border='1'>\n";
 //
-
+ echo "<td>ランク</td>";
+ echo "<td>日本語タイトル</td>";
+  echo "<td>英語タイトル</td>";
+   echo "<td>興行収入</td>";
+    echo "<td>公開年</td>";
 while($row = $pre->fetch(PDO::FETCH_ASSOC)) {
-  //
+  // 
   echo "  <tr>\n";
   foreach($row as $key => $val) {
     echo "    <td>", h($val), "</td>\n";
