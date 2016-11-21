@@ -22,7 +22,7 @@ foreach($outlines as $key => $kazu){
 	if($kazu == "1"){}
 	else if(preg_match("/.{2}/u", $key)){
 		echo "<tr><td>$key</td><td>$kazu</td></tr>";}
-}	?>
+} 	?>
 </table>
 </body>
 </html>
